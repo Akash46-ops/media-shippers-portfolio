@@ -1,63 +1,572 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Media Shippers | Hybrid AI Dubbing Portfolio</title>
-<meta name="description" content="Media Shippers: taking your content across the globe. Hybrid AI and human dubbing, subtitling, transcription and translation.">
-<link rel="icon" href="assets/img/favicon.png"><link rel="stylesheet" href="assets/fonts.css"><link rel="stylesheet" href="assets/style.css"></head>
-<body>
-<nav class="nav"><ul><li><a href="#home" class="active">Home</a></li><li><a href="#work">Work</a></li><li><a href="#showreel">Showreel</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<title>Media Shippers Dubbing Portfolio</title>
+<link rel="icon" href="assets/img/favicon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans:wght@700;800&family=Noto+Sans+Devanagari:wght@700;800&family=Noto+Sans+Bengali:wght@700;800&family=Noto+Sans+Kannada:wght@700;800&family=Noto+Sans+Arabic:wght@700;800&family=Noto+Sans+JP:wght@700;800&family=Noto+Sans+KR:wght@700;800&display=swap">
+<style>
+:root{
+  --ink:#081120; --panel:#0e1a2c; --panel-2:#13233a; --line:#1f3150; --fg:#f2f5fa; --muted:#94a4be;
+  --orange:#F26A1B; --blue:#0F7DBF; --blue-lt:#3aa6e6; --yellow:#F7B500; --red:#E21F4F; --plum:#9B1650; --teal:#1BA39C;
+  --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --body:"Figtree",ui-sans-serif,system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --script:"Bricolage Grotesque","Noto Sans","Noto Sans Devanagari","Noto Sans Bengali","Noto Sans Kannada","Noto Sans JP","Noto Sans KR","Noto Sans Arabic","Nirmala UI","Yu Gothic","Malgun Gothic",system-ui,sans-serif;
+  --speed:linear-gradient(90deg,var(--yellow),var(--orange) 40%,var(--red) 75%,var(--plum));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id],#work{scroll-margin-top:60px}
+body{background:var(--ink);color:var(--fg);font:16px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,video{max-width:100%}
+:focus-visible{outline:2px solid var(--yellow);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance;letter-spacing:-.015em}
+.eyebrow{font:500 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--yellow)}
+.sec{padding-block:96px 24px}
+.sec-head{display:grid;gap:14px;margin-bottom:34px;max-width:780px}
+.sec-head h2{font-size:clamp(32px,5vw,56px);line-height:1.02;font-weight:800}
+.sec-head p{margin:0;color:var(--muted);font-size:18px;max-width:60ch}
+.speed{display:grid;gap:5px;width:140px}
+.speed i{display:block;height:5px;border-radius:5px;background:var(--speed)}
+.speed i:nth-child(1){width:62%;margin-left:30%}
+.speed i:nth-child(2){width:100%}
+.speed i:nth-child(3){width:74%;margin-left:12%}
+.grad{background:var(--speed);-webkit-background-clip:text;background-clip:text;color:transparent}
 
-<section id="home">
- <video class="bgv" src="assets/video/banner.mp4" poster="assets/img/banner.jpg" autoplay muted loop playsinline preload="auto"></video>
- <img class="hero-logo" src="assets/img/logo.png" alt="Media Shippers">
- <div class="divider">Hybrid <span>✦</span> AI + Human Dubbing</div>
- <p class="tagline"><span class="grad">Media Shippers:</span> <i>taking your content across the globe.</i></p>
- <div class="cta"><a class="btn btn-o" href="#work">Watch samples</a><a class="btn btn-b" href="#contact">Get a free sample dub</a></div>
-</section>
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(8,17,32,.8);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.nav img{height:34px;width:auto;display:block}
+.nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.nav ul a{display:block;text-decoration:none;font-weight:600;font-size:14px;padding:8px 13px;border-radius:8px;color:var(--muted)}
+.nav ul a.active{color:var(--fg);background:rgba(255,255,255,.08)}
+.nav ul a:hover{color:var(--fg);background:rgba(255,255,255,.06)}
+.cta-mini{background:var(--orange);color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:9px 16px;border-radius:10px;white-space:nowrap}
 
-<section id="work">
- <h2 class="sec-title grad reveal">Our Work</h2>
- <p class="sec-sub reveal">Hybrid AI dubs: AI voices, adapted, directed and checked by people. Everything plays right here on the page.</p>
- <div class="master reveal">
-  <video src="assets/video/master.mp4" poster="assets/img/master.jpg" controls playsinline preload="metadata"></video>
-  <div><div class="eyebrow">Master sample</div><h3>Enttech Dubbing Sample</h3><p>A single reel featuring several of our dubbing clips. Start here, then browse the samples by language below.</p></div>
- </div>
- <div class="tabs reveal" id="tabs"></div>
- <div class="grid" id="grid"></div>
-</section>
+/* hero */
+.hero{position:relative;overflow:hidden;isolation:isolate;border-bottom:1px solid var(--line)}
+.hero video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;filter:brightness(.38) saturate(.8) blur(2px);transform:scale(1.05)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  radial-gradient(ellipse 65% 60% at 50% 38%,rgba(8,17,32,.1),rgba(8,17,32,.7) 70%,rgba(8,17,32,.95)),
+  linear-gradient(180deg,rgba(8,17,32,0) 55%,var(--ink) 100%)}
+.hero .wrap{display:grid;justify-items:center;text-align:center;gap:24px;padding-block:clamp(64px,10vh,110px) 48px}
+.hero-logo{width:min(520px,82vw);height:auto;filter:drop-shadow(0 0 1px rgba(255,255,255,.9)) drop-shadow(0 8px 30px rgba(0,0,0,.9)) drop-shadow(0 0 70px rgba(255,255,255,.2))}
+.slate{width:min(860px,100%);border:1px solid rgba(255,255,255,.14);border-radius:20px;background:rgba(8,17,32,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:22px clamp(16px,3vw,30px) 20px;display:grid;gap:14px}
+.slate-top{display:flex;justify-content:space-between;align-items:center;gap:12px;font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rec{display:inline-flex;align-items:center;gap:8px;color:#ffd9c7}
+.rec::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red);animation:blink 1.4s steps(2) infinite}
+@keyframes blink{50%{opacity:.25}}
+.line-say{min-height:2.3em;display:grid;place-items:center}
+.line-say q{quotes:"“" "”";font:800 clamp(30px,5.6vw,64px)/1.08 var(--script);letter-spacing:-.01em;transition:opacity .35s,transform .35s}
+.line-say q.out{opacity:0;transform:translateY(8px)}
+.wave{display:flex;align-items:center;gap:3px;height:36px}
+.wave i{flex:1;border-radius:2px;background:var(--orange);opacity:.85;transform-origin:center;animation:wv 1.1s ease-in-out infinite}
+.wave i:nth-child(3n){background:var(--yellow)}
+.wave i:nth-child(4n){background:var(--red)}
+@keyframes wv{0%,100%{transform:scaleY(.25)}50%{transform:scaleY(1)}}
+.langbar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.langbar button{appearance:none;border:1px solid rgba(255,255,255,.16);background:transparent;color:var(--muted);border-radius:8px;padding:6px 9px;font:500 12px/1 var(--mono);letter-spacing:.06em;cursor:pointer}
+.langbar button[aria-pressed="true"]{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.hero h1{font-size:clamp(20px,2.6vw,28px);line-height:1.3;font-weight:700;max-width:34ch;color:#dfe7f2}
+.btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:15px;text-decoration:none;padding:13px 22px;border-radius:12px;border:1px solid transparent;cursor:pointer;font-family:var(--body)}
+.btn.primary{background:linear-gradient(135deg,var(--orange),var(--red));color:#fff;box-shadow:0 10px 30px -10px rgba(242,106,27,.7)}
+.btn.ghost{border-color:rgba(255,255,255,.28);color:var(--fg);background:rgba(255,255,255,.04)}
+.btn.ghost:hover{border-color:var(--fg)}
+.stats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;font:500 13px/1.2 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.stats b{font:800 22px/1 var(--display);color:var(--fg);letter-spacing:0;margin-right:6px}
 
-<section id="showreel">
- <h2 class="sec-title grad reveal">Showreels</h2>
- <p class="sec-sub reveal">"AI can't act?" Watch and decide.</p>
- <div class="reels" id="reels"></div>
-</section>
+.hero-title{font-size:clamp(34px,6vw,70px)!important;line-height:1!important;font-weight:800!important;max-width:16ch!important;color:var(--fg)!important}
+.lead{margin:0;max-width:58ch;color:#c9d4e4;font-size:clamp(16px,2vw,19px)}
+.room{display:grid;justify-items:center;text-align:center;gap:18px}
+.room .slate{background:var(--panel)}
+/* A/B studio */
+.studio{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,320px);gap:24px}
+.stage{display:grid;gap:14px;align-content:start}
+.ab-frame{position:relative;background:#000;border-radius:14px;overflow:hidden;aspect-ratio:16/9;max-height:70vh;justify-self:stretch}
+.ab-frame.vert{aspect-ratio:9/16;height:min(70vh,640px);justify-self:center}
+.ab-frame video{width:100%;height:100%;object-fit:contain;display:block}
+.ab-badge{position:absolute;top:12px;left:12px;font:600 12px/1 var(--mono);letter-spacing:.1em;padding:8px 10px;border-radius:8px;background:rgba(8,17,32,.82);border:1px solid rgba(255,255,255,.15);pointer-events:none}
+.ab-badge.dub{background:var(--orange);border-color:var(--orange);color:#fff}
+.switch{display:grid;grid-template-columns:1fr 1fr;background:var(--ink);border:1px solid var(--line);border-radius:14px;padding:5px;gap:5px}
+.switch button{appearance:none;border:0;border-radius:10px;padding:13px 10px;font:700 15px/1.1 var(--body);color:var(--muted);background:transparent;cursor:pointer;display:grid;gap:4px}
+.switch button small{font:500 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.switch button[aria-pressed="true"]{background:var(--fg);color:var(--ink)}
+.switch button.dubbtn[aria-pressed="true"]{background:linear-gradient(135deg,var(--orange),var(--red));color:#fff}
+.hint{font-size:14px;color:var(--muted);margin:0}
+.hint kbd{font:500 12px var(--mono);border:1px solid var(--line);border-bottom-width:2px;padding:1px 6px;border-radius:5px;color:var(--fg)}
+.pairs{display:grid;gap:10px;align-content:start}
+.pairs .eyebrow{margin-bottom:2px}
+.pair{appearance:none;text-align:left;width:100%;display:grid;grid-template-columns:86px minmax(0,1fr);gap:12px;align-items:center;padding:10px;border-radius:14px;border:1px solid var(--line);background:var(--ink);color:var(--fg);cursor:pointer;font-family:var(--body)}
+.pair img{width:86px;height:56px;object-fit:cover;border-radius:8px;display:block}
+.pair b{display:block;font-size:15px;line-height:1.25}
+.pair span{font:500 11px/1.4 var(--mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.pair[aria-pressed="true"]{border-color:var(--orange);background:linear-gradient(135deg,rgba(242,106,27,.14),rgba(226,31,79,.08))}
 
-<section id="services">
- <h2 class="huge grad reveal">Services</h2>
- <div class="glass svc reveal"><ul>
-  <li><div>Hybrid AI + human dubbing<small>AI voices with human script adaptation, emotion direction, lip-sync and QC.</small></div></li>
-  <li><div>Subtitling<small>Timed, translated subtitles ready for your platform.</small></div></li>
-  <li><div>Transcription<small>Accurate transcripts and dialogue scripts from your source audio.</small></div></li>
-  <li><div>Translation<small>Script translation adapted for culture, not just words.</small></div></li>
- </ul><div class="offer">🎁 <b>Free 1–2 minute sample dub</b>. Hear your content in a new language before you commit.</div></div>
-</section>
+/* master */
+.master{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.75fr);gap:34px;align-items:center}
+.frame{position:relative;border-radius:18px;overflow:hidden;background:#000;border:1px solid var(--line);box-shadow:0 30px 80px -30px rgba(0,0,0,.9)}
+.frame video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.master-copy{display:grid;gap:16px}
+.master-copy h2{font-size:clamp(30px,4vw,46px);line-height:1.04;font-weight:800}
+.master-copy p{margin:0;color:var(--muted)}
+.chiplist{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:500 12px/1 var(--mono);padding:8px 10px;border-radius:8px;background:var(--panel-2);border:1px solid var(--line);color:#d6dfec}
 
-<section id="contact">
- <h2 class="sec-title grad reveal" style="text-align:center">Contact Us</h2>
- <p class="sec-sub reveal" style="margin:0 auto 30px;text-align:center">Send us a clip and the language you need, and we'll come back with a free 1–2 minute sample dub.</p>
- <div class="founder reveal"><span>Founder</span><b>Uday Ghare</b></div>
- <div class="ccards">
-  <div class="glass ccard reveal"><div class="cname">Geetha Bharathi VR</div><div class="crole">Content Delivery Head</div>
-   <a class="citem" href="mailto:geetha.bharathi@entertainmenttechnologists.com?subject=Free%20sample%20dub%20request"><span class="ic mail">✉</span>geetha.bharathi@entertainmenttechnologists.com</a>
-   <a class="citem" href="https://www.linkedin.com/in/geetha-bharathi-vr-467bb7327/" target="_blank" rel="noopener"><span class="ic li">in</span>LinkedIn profile</a></div>
-  <div class="glass ccard reveal"><div class="cname">Akash Kr Gupta</div><div class="crole">Dubbing Supervisor</div>
-   <a class="citem" href="mailto:akash.gupta@entertainmenttechnologists.com?subject=Free%20sample%20dub%20request"><span class="ic mail">✉</span>akash.gupta@entertainmenttechnologists.com</a>
-   <a class="citem" href="https://www.linkedin.com/in/akash-kr-gupta-0aba68207/" target="_blank" rel="noopener"><span class="ic li">in</span>LinkedIn profile</a></div>
- </div>
- <div class="social reveal">
-  <a class="citem" href="https://www.linkedin.com/company/entertainment-technologists-inc" target="_blank" rel="noopener"><span class="ic li">in</span>Entertainment Technologists</a>
-  <a class="citem" href="https://www.instagram.com/mediashippers" target="_blank" rel="noopener"><span class="ic ig">◎</span>@mediashippers</a>
- </div>
- <footer>© 2026 Media Shippers · Taking your content across the globe</footer>
-</section>
-<script src="assets/data.js"></script><script src="assets/main.js"></script>
+/* shelf */
+.filters{display:grid;gap:14px;margin-bottom:28px}
+.filter-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.filter-row .lbl{font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);width:88px}
+.fbtn{appearance:none;border:1px solid var(--line);background:var(--panel);color:#cfd9e8;border-radius:10px;padding:8px 13px;font:600 14px/1 var(--body);cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.fbtn em{font:500 11px/1 var(--mono);font-style:normal;color:var(--muted)}
+.fbtn[aria-pressed="true"]{background:var(--fg);color:var(--ink);border-color:var(--fg)}
+.fbtn[aria-pressed="true"] em{color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
+.card{appearance:none;text-align:left;padding:0;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:16px;overflow:hidden;cursor:pointer;display:flex;flex-direction:column;font-family:var(--body);transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);border-color:#34507a;box-shadow:0 22px 40px -24px rgba(0,0,0,.9)}
+.thumb{position:relative;aspect-ratio:16/10;max-width:100%;background:#000;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.thumb.vert::before{content:"";position:absolute;inset:0;background-image:var(--bgimg);background-size:cover;background-position:center;filter:blur(18px) brightness(.5);transform:scale(1.2)}
+.thumb.vert img{object-fit:contain;position:relative}
+.card:hover .thumb img{transform:scale(1.04)}
+.play{position:absolute;left:12px;bottom:12px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.95);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.5)}
+.play::after{content:"";border-left:13px solid var(--ink);border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.dur{position:absolute;right:10px;bottom:12px;font:500 12px/1 var(--mono);background:rgba(0,0,0,.72);padding:6px 8px;border-radius:6px}
+.tag{position:absolute;top:10px;left:10px;display:flex;gap:6px}
+.tag span{font:600 11px/1 var(--mono);letter-spacing:.06em;padding:6px 8px;border-radius:6px;background:rgba(8,17,32,.82);border:1px solid rgba(255,255,255,.12)}
+.tag span.ab{background:var(--teal);border-color:var(--teal);color:#fff}
+.card .meta{padding:14px 16px 16px;display:grid;gap:6px}
+.route{display:flex;align-items:center;gap:8px;font:500 12px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);flex-wrap:wrap}
+.route .to{color:var(--orange)}
+.route i{flex:0 0 22px;height:2px;background:var(--speed);border-radius:2px}
+.card h3{font:700 18px/1.25 var(--display);letter-spacing:0}
+.card .fmt{font-size:14px;color:var(--muted)}
+.empty{color:var(--muted)}
+
+/* promos */
+.reels{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1.25fr);gap:22px;align-items:start}
+.reel{display:grid;gap:10px}
+.reel .frame video{aspect-ratio:9/16;object-fit:cover}
+.reel b{font:700 16px/1.3 var(--display)}
+.reel span{font:500 12px/1 var(--mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.emotion{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:14px}
+.emotion h3{font-size:24px;line-height:1.15}
+.emotion p{margin:0;color:var(--muted);font-size:15px}
+.emotion .frame video{aspect-ratio:982/540}
+
+/* delivery */
+.deliver{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+.manifest{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.manifest header{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.manifest ul{list-style:none;margin:0;padding:0}
+.manifest li{display:grid;grid-template-columns:64px minmax(0,1fr);gap:14px;align-items:start;padding:15px 18px;border-bottom:1px solid var(--line)}
+.manifest li:last-child{border-bottom:0}
+.ext{font:600 11px/1 var(--mono);text-align:center;padding:7px 0;border-radius:6px;color:#fff}
+.manifest b{display:block;font-size:16px}
+.manifest small{color:var(--muted);font-size:14px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.steps li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:15px 18px;border-bottom:1px solid var(--line);background:var(--ink)}
+.steps li:last-child{border-bottom:0}
+.steps span{font:500 13px/1.6 var(--mono);color:var(--orange)}
+.steps b{display:block;font-size:16px}
+.steps small{color:var(--muted);font-size:14px}
+
+/* team */
+.team{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.person{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:14px;align-content:start}
+.person .top{display:flex;gap:14px;align-items:center}
+.person .top div{display:grid;gap:4px;min-width:0}
+.avatar{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font:800 19px/1 var(--display);color:#fff;flex-shrink:0}
+.person b{font:800 20px/1.15 var(--display)}
+.role{font:500 11px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--yellow)}
+.person p{margin:0;color:var(--muted);font-size:15px}
+.line{display:grid;gap:8px;border-top:1px solid var(--line);padding-top:12px}
+.line .val{min-width:0;overflow-wrap:anywhere;font-size:14px}
+.line small{display:block;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+.mini{appearance:none;border:1px solid var(--line);background:var(--ink);color:var(--fg);border-radius:8px;padding:8px 10px;font:600 12px/1 var(--mono);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.mini:hover{border-color:var(--fg)}
+.mini.li{background:#0a66c2;border-color:#0a66c2;color:#fff}
+
+.closing{margin-top:96px;background:linear-gradient(120deg,rgba(15,125,191,.28),rgba(27,163,156,.18) 60%,rgba(155,22,80,.22));border-block:1px solid rgba(58,166,230,.3)}
+.closing .wrap{padding-block:56px;display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
+.closing h2{font-size:clamp(28px,4vw,44px);line-height:1.05;font-weight:800;max-width:22ch}
+.closing p{margin:8px 0 0;color:#c9d4e4;max-width:52ch}
+footer{padding-block:30px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center}
+footer img{height:30px;width:auto}
+footer nav{display:flex;gap:16px;flex-wrap:wrap}
+
+/* modal */
+.modal[hidden]{display:none}
+.modal{position:fixed;inset:0;z-index:100;background:rgba(3,7,14,.93);backdrop-filter:blur(8px);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 16px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 16px) max(16px,env(safe-area-inset-left,0px))}
+.dialog{width:min(1100px,100%);max-height:100%;display:grid;gap:14px;grid-template-rows:auto minmax(0,1fr) auto}
+.dialog header{display:flex;justify-content:space-between;align-items:start;gap:16px}
+.dialog header h3{font-size:clamp(20px,3vw,28px)}
+.close{appearance:none;border:1px solid rgba(255,255,255,.25);background:transparent;color:var(--fg);width:42px;height:42px;border-radius:50%;font-size:22px;cursor:pointer;flex-shrink:0}
+.mframe{background:#000;border-radius:14px;overflow:hidden;display:grid;place-items:center;min-height:0}
+.mframe video{max-width:100%;max-height:72vh;display:block}
+.dialog .switch{max-width:420px}
+
+@media (max-width:980px){
+  .master,.studio,.deliver{grid-template-columns:minmax(0,1fr)}
+  .master .frame{order:-1}
+  .pairs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pairs .eyebrow{grid-column:1/-1}
+  .reels{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .emotion{grid-column:1/-1}
+  .team{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+}
+@media (max-width:720px){
+  .nav img{height:26px;max-width:none}
+  .nav .wrap>a{flex-shrink:0}
+  .nav ul{overflow-x:auto}
+  .nav ul a{padding:7px 8px;font-size:13px}
+  .team,.pairs{grid-template-columns:minmax(0,1fr)}
+  .filter-row .lbl{width:100%}
+  .sec{padding-block:68px 16px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head><body>
+<header class="nav">
+  <div class="wrap">
+    <a href="#home" aria-label="Media Shippers home"><img src="assets/img/logo.png" alt="Media Shippers" width="640" height="186"></a>
+    <nav aria-label="Sections"><ul id="navl"><li><a href="#home" class="active">Home</a></li><li><a href="#work">Work</a></li><li><a href="#showreel">Showreel</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <video class="bg" src="assets/video/banner.mp4" poster="assets/img/banner.jpg" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>
+    <div class="wrap">
+      <img class="hero-logo" src="assets/img/logo.png" alt="Media Shippers" width="640" height="186">
+      <h1 class="hero-title">One story. <span class="grad">Every language.</span> Same emotion.</h1>
+      <p class="lead">Hybrid AI dubbing for film, series and creators. AI voices that keep the actor's tone, with every performance directed and checked by people.</p>
+      <div class="btns">
+        <a class="btn primary" href="#ab">Switch a scene's voice</a>
+        <a class="btn ghost" href="#reel">▶ Play the full reel</a>
+      </div>
+      <div class="stats"><span><b id="st-lang">12</b>languages out</span><span><b id="st-samp">19</b>finished dubs</span><span><b id="st-ab">4</b>original-vs-dub scenes</span><span><b id="st-fmt">5</b>formats</span></div>
+    </div>
+  </section>
+
+
+
+
+
+  <div id="work">
+  <section class="sec wrap" id="reel">
+    <div class="master">
+      <div class="master-copy">
+        <div class="speed" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="eyebrow">Full reel · 02:43</div>
+        <h2>The EntTech dubbing reel.</h2>
+        <p>Short on time? This cut strings our strongest scenes together: film, drama and animation, across several language pairs. Watch for lip-sync on close-ups and how the voices carry the original performance.</p>
+        <div class="chiplist"><span class="chip">Feature film</span><span class="chip">Drama</span><span class="chip">Animation</span><span class="chip">Multi-language</span></div>
+      </div>
+      <div class="frame"><video src="assets/video/master.mp4" poster="assets/img/master.jpg" controls playsinline preload="metadata"></video></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="ab">
+    <div class="sec-head">
+      <div class="eyebrow">A/B voice switch</div>
+      <h2>Change the voice. Keep the moment.</h2>
+      <p>Play a scene and switch between the source track and our dub at any point. The picture holds its place, so you hear one line, two languages, back to back.</p>
+    </div>
+    <div class="studio">
+      <div class="stage">
+        <div class="ab-frame" id="ab-frame">
+          <video id="ab-video" playsinline controls preload="metadata" poster="assets/img/english-hindi-original.jpg" src="assets/video/english-hindi-original.mp4"></video>
+          <span class="ab-badge" id="ab-badge">SOURCE · HI</span>
+        </div>
+        <div class="switch" role="group" aria-label="Audio track">
+          <button id="ab-orig" aria-pressed="true"><span id="ab-orig-l">Hindi</span><small>Source track</small></button>
+          <button id="ab-dub" class="dubbtn" aria-pressed="false"><span id="ab-dub-l">English dub</span><small>Media Shippers dub</small></button>
+        </div>
+        <p class="hint">Keyboard: <kbd>A</kbd> source, <kbd>B</kbd> dub.</p>
+      </div>
+      <div class="pairs" id="pairs" role="group" aria-label="Choose a scene"><div class="eyebrow">Pick a scene</div></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="shelf">
+    <div class="sec-head">
+      <div class="eyebrow">Sample shelf</div>
+      <h2>Find your language. Press play.</h2>
+      <p>Filter by the language you're selling into, or by format. Cards tagged <span class="chip" style="padding:3px 6px;background:var(--teal);border-color:var(--teal);color:#fff">A/B</span> let you hear the source too.</p>
+    </div>
+    <div class="filters">
+      <div class="filter-row" id="f-lang"><span class="lbl">Dubbed into</span></div>
+      <div class="filter-row" id="f-fmt"><span class="lbl">Format</span></div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section class="sec wrap" id="room">
+    <div class="sec-head" style="margin-inline:auto;text-align:center;justify-items:center">
+      <div class="eyebrow">Dubbing room</div>
+      <h2>One line. Twelve languages.</h2>
+      <p>The same line of dialogue in every language we dub into. Tap a language code to jump to it.</p>
+    </div>
+    <div class="room">
+      <div class="slate" aria-live="polite">
+        <div class="slate-top"><span class="rec">Dubbing room</span><span id="say-meta"></span></div>
+        <div class="line-say"><q id="say" class="out" dir="ltr"></q></div>
+        <div class="wave" aria-hidden="true" id="wave"></div>
+        <div class="langbar" id="langbar" role="group" aria-label="Hear the line in a language"></div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <section class="sec wrap" id="showreel">
+    <div class="sec-head">
+      <div class="eyebrow">Show reels</div>
+      <h2>Made for the feed. Tested for feeling.</h2>
+      <p>Two vertical promos built for social, and two eight-second emotion tests. Fear and comedy are the hardest things for a synthetic voice to fake.</p>
+    </div>
+    <div class="reels">
+      <div class="reel"><div class="frame"><video src="assets/video/reel-promo.mp4" poster="assets/img/reel-promo.jpg" controls playsinline preload="none"></video></div><b>AI Dubbing Promo</b><span>9:16 · 01:01</span></div>
+      <div class="reel"><div class="frame"><video src="assets/video/reel-instagram.mp4" poster="assets/img/reel-instagram.jpg" controls playsinline preload="none"></video></div><b>Instagram cut</b><span>4:5 · 00:54</span></div>
+      <div class="emotion">
+        <div class="speed" aria-hidden="true"><i></i><i></i><i></i></div>
+        <h3>Eight-second emotion test</h3>
+        <p>Listen for breath, pace and the crack in the voice.</p>
+        <div class="frame"><video src="assets/video/clip_A.mp4" poster="assets/img/clip_A.jpg" controls playsinline preload="none"></video></div>
+        <span class="route"><span>Fear</span><i></i><span class="to">Arabic</span></span>
+        <div class="frame"><video src="assets/video/clip_R.mp4" poster="assets/img/clip_R.jpg" controls playsinline preload="none"></video></div>
+        <span class="route"><span>Comic timing</span><i></i><span class="to">Russian</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="services">
+    <div class="sec-head">
+      <div class="eyebrow">Delivery</div>
+      <h2>What lands in your inbox.</h2>
+      <p>Every dub ships platform-ready, with the files your distributor or OTT partner will ask for.</p>
+    </div>
+    <div class="deliver">
+      <div class="manifest">
+        <header><span>Delivery manifest</span><span>Per title</span></header>
+        <ul>
+          <li><span class="ext" style="background:var(--orange)">MIX</span><div><b>Dubbed final mix</b><small>Stereo or 5.1, levelled to your platform's loudness spec.</small></div></li>
+          <li><span class="ext" style="background:var(--plum)">M&amp;E</span><div><b>Music &amp; effects stems</b><small>Clean M&amp;E so the title can be re-versioned later.</small></div></li>
+          <li><span class="ext" style="background:var(--blue)">SRT</span><div><b>Subtitles &amp; captions</b><small>Timed SRT or VTT in the target language.</small></div></li>
+          <li><span class="ext" style="background:var(--teal)">DOC</span><div><b>Adapted dialogue script</b><small>Transcription plus translation adapted for idiom and mouth movement.</small></div></li>
+          <li><span class="ext" style="background:#3b4e6e">QC</span><div><b>QC sign-off</b><small>Sync, pronunciation and level checks done by our team.</small></div></li>
+        </ul>
+      </div>
+      <ol class="steps" aria-label="How a dub is made">
+        <li><span>01</span><div><b>You send a scene</b><small>Any format, any length, plus the language you need.</small></div></li>
+        <li><span>02</span><div><b>We transcribe and adapt</b><small>Lines rewritten to fit the mouth, the timing and the culture.</small></div></li>
+        <li><span>03</span><div><b>Voices are cast and shaped</b><small>The AI voice keeps the actor's tone; a director tunes every emotional beat.</small></div></li>
+        <li><span>04</span><div><b>Mix and quality check</b><small>Lip-sync, levels and pronunciation reviewed by people.</small></div></li>
+        <li><span>05</span><div><b>Delivered to spec</b><small>Final files formatted for your platform, ready to upload.</small></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <div id="contact">
+  <section class="sec wrap" id="team">
+    <div class="sec-head">
+      <div class="eyebrow">Team</div>
+      <h2>The people behind the voices.</h2>
+      <p>Write to Geetha or Akash directly with a scene and a target language. Your first 1–2 minute test dub is free.</p>
+    </div>
+    <div class="team">
+      <div class="person">
+        <div class="top"><div class="avatar" style="background:linear-gradient(135deg,var(--blue),var(--teal))">UG</div><div><b>Uday Ghare</b><span class="role">Founder</span></div></div>
+        <p>Founder of Media Shippers and CEO of Entertainment Technologists Development Corp.</p>
+      </div>
+      <div class="person">
+        <div class="top"><div class="avatar" style="background:linear-gradient(135deg,var(--orange),var(--red))">GB</div><div><b>Geetha Bharathi VR</b><span class="role">Content Delivery Head</span></div></div>
+        <div class="line"><div class="val"><small>Email</small><span id="em-g">geetha.bharathi@entertainmenttechnologists.com</span></div><div class="acts"><button class="mini" data-copy="em-g">Copy email</button><a class="mini" href="mailto:geetha.bharathi@entertainmenttechnologists.com?subject=Test%20dub%20request">Write</a><a class="mini li" href="https://www.linkedin.com/in/geetha-bharathi-vr-467bb7327/" target="_blank" rel="noopener">LinkedIn</a></div></div>
+      </div>
+      <div class="person">
+        <div class="top"><div class="avatar" style="background:linear-gradient(135deg,var(--yellow),var(--orange))">AG</div><div><b>Akash Kr Gupta</b><span class="role">Dubbing Supervisor</span></div></div>
+        <div class="line"><div class="val"><small>Email</small><span id="em-a">akash.gupta@entertainmenttechnologists.com</span></div><div class="acts"><button class="mini" data-copy="em-a">Copy email</button><a class="mini" href="mailto:akash.gupta@entertainmenttechnologists.com?subject=Test%20dub%20request">Write</a><a class="mini li" href="https://www.linkedin.com/in/akash-kr-gupta-0aba68207/" target="_blank" rel="noopener">LinkedIn</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing">
+    <div class="wrap">
+      <div><h2>Send one scene. Get it back in your buyer's language.</h2><p>A free 1–2 minute test dub, so you can judge the voice before you commit.</p></div>
+      <a class="btn primary" href="#team">Request a test dub</a>
+    </div>
+  </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/img/logo.png" alt="Media Shippers" width="640" height="186">
+    <nav aria-label="Social">
+      <a href="https://www.linkedin.com/company/entertainment-technologists-inc" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/mediashippers" target="_blank" rel="noopener">Instagram @mediashippers</a>
+    </nav>
+    <span>© 2026 Media Shippers · Entertainment Technologists</span>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="dialog">
+    <header><div><div class="route" id="m-route"></div><h3 id="m-title"></h3></div><button class="close" id="m-close" aria-label="Close player">×</button></header>
+    <div class="mframe"><video id="m-video" controls playsinline></video></div>
+    <div class="switch" id="m-switch" role="group" aria-label="Audio track" hidden>
+      <button id="m-orig" aria-pressed="false"><span>Source</span><small>Original track</small></button>
+      <button id="m-dub" class="dubbtn" aria-pressed="true"><span>Dub</span><small>Media Shippers</small></button>
+    </div>
+  </div>
+</div>
+
+<script>
+const S=[
+ {f:'english-hindi-dub',orig:'english-hindi-original',from:'Hindi',to:'English',title:'Search party',fmt:'Drama',d:67},
+ {f:'english-hebrew-accent-dub',orig:'english-hebrew-original',from:'Hebrew',to:'English',title:'Butterfly class',fmt:'Drama',d:121,note:'Hebrew accent kept'},
+ {f:'english-yomeddine',from:'Arabic',to:'English',title:'Yomeddine',fmt:'Feature film',d:105},
+ {f:'english-rebels-trailer',from:'Source',to:'English',title:'Rebels',fmt:'Trailer',d:148},
+ {f:'anim-english',from:'Source',to:'English',title:'Cartoon series',fmt:'Animation',d:67},
+ {f:'hindi-chinese',from:'Chinese',to:'Hindi',title:'Hospital micro-drama',fmt:'Vertical drama',d:121,v:1},
+ {f:'anim-hindi',orig:'anim-original',from:'Source',to:'Hindi',title:'Animated short',fmt:'Animation',d:303},
+ {f:'spanish-latam',from:'Source',to:'Spanish',title:'Live-action comedy',fmt:'Drama',d:96,note:'Latin American'},
+ {f:'anim-spanish',from:'Source',to:'Spanish',title:'Cartoon series',fmt:'Animation',d:67,note:'Latin American'},
+ {f:'japanese-korean-drama',from:'Korean',to:'Japanese',title:'K-drama short',fmt:'Vertical drama',d:56,v:1},
+ {f:'japanese-yomeddine',from:'Arabic',to:'Japanese',title:'Yomeddine',fmt:'Feature film',d:105},
+ {f:'german-dub',orig:'german-original',from:'Source',to:'German',title:'Kitchen thriller',fmt:'Vertical drama',d:103,v:1},
+ {f:'french-dub',from:'Source',to:'French',title:'Studio talk show',fmt:'Drama',d:40},
+ {f:'portuguese-yomeddine',from:'Arabic',to:'Portuguese',title:'Yomeddine',fmt:'Feature film',d:105},
+ {f:'korean-dub',from:'Source',to:'Korean',title:'Vertical K-drama',fmt:'Vertical drama',d:119,v:1},
+ {f:'bengali-marathi',from:'Marathi',to:'Bengali',title:'Creator explainer',fmt:'Vertical drama',d:47,v:1},
+ {f:'kannada-dub',from:'Source',to:'Kannada',title:'Film scene',fmt:'Feature film',d:35},
+ {f:'clip_A',from:'Source',to:'Arabic',title:'Fear on the phone',fmt:'Drama',d:8},
+ {f:'clip_R',from:'Source',to:'Russian',title:'Café argument',fmt:'Drama',d:8}
+];
+const CODE={English:'EN',Hindi:'HI',Spanish:'ES',Japanese:'JA',German:'DE',French:'FR',Portuguese:'PT',Korean:'KO',Bengali:'BN',Kannada:'KN',Arabic:'AR',Russian:'RU',Hebrew:'HE',Chinese:'ZH',Marathi:'MR',Source:'SRC'};
+const tc=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.round(s%60)).padStart(2,'0');
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id);
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* hero: one line, many languages */
+const LINES=[
+ ['EN','English',"Don't leave me here.",'ltr'],['HI','Hindi','मुझे यहाँ छोड़कर मत जाओ।','ltr'],['ES','Spanish','No me dejes aquí.','ltr'],
+ ['JA','Japanese','ここに置いていかないで。','ltr'],['KO','Korean','날 여기 두고 가지 마.','ltr'],['DE','German','Lass mich nicht hier zurück.','ltr'],
+ ['FR','French','Ne me laisse pas ici.','ltr'],['PT','Portuguese','Não me deixe aqui.','ltr'],['BN','Bengali','আমাকে এখানে ফেলে যেও না।','ltr'],
+ ['KN','Kannada','ನನ್ನನ್ನು ಇಲ್ಲಿ ಬಿಟ್ಟು ಹೋಗಬೇಡ.','ltr'],['AR','Arabic','لا تتركني هنا.','rtl'],['RU','Russian','Не оставляй меня здесь.','ltr']
+];
+$('wave').innerHTML=Array.from({length:56},(_,i)=>`<i style="animation-delay:${(i*37%100)/100*-1.1}s;height:${30+((i*53)%70)}%"></i>`).join('');
+$('langbar').innerHTML=LINES.map((l,i)=>`<button data-i="${i}" aria-pressed="${i===0}" title="${l[1]}">${l[0]}</button>`).join('');
+let li=0,timer=null;
+function say(i){
+  li=i;const q=$('say'),l=LINES[i];
+  q.classList.add('out');
+  setTimeout(()=>{q.textContent=l[2];q.dir=l[3];q.lang=l[0].toLowerCase();$('say-meta').textContent=`Take ${String(i+1).padStart(2,'0')} · ${l[0]} · ${l[1]}`;q.classList.remove('out')},reduce?0:300);
+  document.querySelectorAll('#langbar button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.i==i));
+}
+function auto(){clearInterval(timer);if(!reduce)timer=setInterval(()=>say((li+1)%LINES.length),2600)}
+$('langbar').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;say(+b.dataset.i);auto()});
+auto();
+say(0);
+
+/* stats */
+const langs=[...new Set(S.map(s=>s.to))];
+$('st-lang').textContent=langs.length;$('st-samp').textContent=S.length;$('st-ab').textContent=S.filter(s=>s.orig).length;$('st-fmt').textContent=new Set(S.map(s=>s.fmt)).size;
+
+/* shelf */
+const order=['All',...langs.sort((a,b)=>S.filter(s=>s.to===b).length-S.filter(s=>s.to===a).length)];
+const fmts=['All','Feature film','Drama','Animation','Vertical drama','Trailer'];
+let fl='All',ff='All';
+function chips(el,list,key){
+  el.insertAdjacentHTML('beforeend',list.map(x=>{const n=x==='All'?S.length:S.filter(s=>s[key]===x).length;return `<button class="fbtn" data-k="${key}" data-v="${esc(x)}" aria-pressed="${x==='All'}">${esc(x)}<em>${n}</em></button>`}).join(''));
+}
+chips($('f-lang'),order,'to');chips($('f-fmt'),fmts,'fmt');
+document.querySelectorAll('.fbtn').forEach(b=>b.addEventListener('click',()=>{
+  const k=b.dataset.k;document.querySelectorAll(`.fbtn[data-k="${k}"]`).forEach(x=>x.setAttribute('aria-pressed',x===b));
+  if(k==='to')fl=b.dataset.v;else ff=b.dataset.v;render();
+}));
+function render(){
+  const list=S.filter(s=>(fl==='All'||s.to===fl)&&(ff==='All'||s.fmt===ff));
+  $('grid').innerHTML=list.length?list.map(s=>`
+   <button class="card" data-f="${s.f}" aria-label="Play ${esc(s.title)}, ${s.from} to ${s.to}">
+    <div class="thumb${s.v?' vert':''}" style="--bgimg:url('assets/img/${s.f}.jpg')">
+      <img src="assets/img/${s.f}.jpg" alt="" loading="lazy">
+      <div class="tag"><span>${CODE[s.to]}</span>${s.orig?'<span class="ab">A/B</span>':''}${s.v?'<span>9:16</span>':''}</div>
+      <span class="play" aria-hidden="true"></span><span class="dur">${tc(s.d)}</span>
+    </div>
+    <div class="meta">
+      <div class="route"><span>${esc(s.from)}</span><i></i><span class="to">${esc(s.to)}</span></div>
+      <h3>${esc(s.title)}</h3>
+      <div class="fmt">${esc(s.fmt)}${s.note?' · '+esc(s.note):''}</div>
+    </div>
+   </button>`).join(''):'<p class="empty">Nothing in that combination yet. Pick another format.</p>';
+}
+render();
+
+function swap(video,src,keep){
+  const t=keep?video.currentTime:0,playing=keep&&!video.paused;
+  video.src=src;
+  video.addEventListener('loadedmetadata',()=>{try{video.currentTime=Math.min(t,video.duration||t)}catch(_){} if(playing)video.play().catch(()=>{})},{once:true});
+}
+
+/* A/B */
+const PAIRS=S.filter(s=>s.orig);
+let cur=PAIRS[0];
+$('pairs').insertAdjacentHTML('beforeend',PAIRS.map((p,i)=>`<button class="pair" data-i="${i}" aria-pressed="${i===0}"><img src="assets/img/${p.orig}.jpg" alt=""><div><b>${esc(p.title)}</b><span>${esc(p.from)} → ${esc(p.to)} · ${tc(p.d)}</span></div></button>`).join(''));
+const abv=$('ab-video');
+function setSide(s,keep){
+  $('ab-orig').setAttribute('aria-pressed',s==='orig');$('ab-dub').setAttribute('aria-pressed',s==='dub');
+  const b=$('ab-badge');b.textContent=s==='orig'?`SOURCE · ${CODE[cur.from]}`:`DUB · ${CODE[cur.to]}`;b.className='ab-badge'+(s==='dub'?' dub':'');
+  swap(abv,`assets/video/${s==='orig'?cur.orig:cur.f}.mp4`,keep);
+}
+function setPair(i){
+  cur=PAIRS[i];document.querySelectorAll('.pair').forEach(x=>x.setAttribute('aria-pressed',x.dataset.i==i));
+  $('ab-orig-l').textContent=cur.from==='Source'?'Source':cur.from;$('ab-dub-l').textContent=cur.to+' dub';
+  abv.poster=`assets/img/${cur.orig}.jpg`;$('ab-frame').classList.toggle('vert',!!cur.v);
+  setSide('orig',false);
+}
+$('pairs').addEventListener('click',e=>{const b=e.target.closest('.pair');if(b)setPair(+b.dataset.i)});
+$('ab-orig').onclick=()=>setSide('orig',true);$('ab-dub').onclick=()=>setSide('dub',true);
+setPair(0);
+
+/* modal */
+const modal=$('modal'),mv=$('m-video');let ms=null,lastFocus=null;
+function openS(s){
+  ms=s;lastFocus=document.activeElement;
+  $('m-title').textContent=s.title;
+  $('m-route').innerHTML=`<span>${esc(s.from)}</span><i></i><span class="to">${esc(s.to)}</span><span>· ${esc(s.fmt)}</span>`;
+  $('m-switch').hidden=!s.orig;$('m-orig').setAttribute('aria-pressed','false');$('m-dub').setAttribute('aria-pressed','true');
+  mv.poster=`assets/img/${s.f}.jpg`;mv.src=`assets/video/${s.f}.mp4`;modal.hidden=false;document.body.style.overflow='hidden';
+  mv.play().catch(()=>{});$('m-close').focus();
+}
+function closeM(){mv.pause();mv.removeAttribute('src');mv.load();modal.hidden=true;document.body.style.overflow='';lastFocus&&lastFocus.focus()}
+$('grid').addEventListener('click',e=>{const c=e.target.closest('.card');if(c)openS(S.find(s=>s.f===c.dataset.f))});
+$('m-close').onclick=closeM;modal.addEventListener('click',e=>{if(e.target===modal)closeM()});
+$('m-orig').onclick=()=>{if(!ms)return;$('m-orig').setAttribute('aria-pressed','true');$('m-dub').setAttribute('aria-pressed','false');swap(mv,`assets/video/${ms.orig}.mp4`,true)};
+$('m-dub').onclick=()=>{if(!ms)return;$('m-dub').setAttribute('aria-pressed','true');$('m-orig').setAttribute('aria-pressed','false');swap(mv,`assets/video/${ms.f}.mp4`,true)};
+document.addEventListener('keydown',e=>{
+  const k=e.key.toLowerCase();
+  if(!modal.hidden){if(e.key==='Escape')closeM();if(ms&&ms.orig&&k==='a')$('m-orig').click();if(ms&&ms.orig&&k==='b')$('m-dub').click();return}
+  const r=$('ab').getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0){if(k==='a')setSide('orig',true);if(k==='b')setSide('dub',true)}
+});
+document.addEventListener('play',e=>{document.querySelectorAll('video').forEach(v=>{if(v!==e.target&&!v.classList.contains('bg'))v.pause()})},true);
+
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const el=$(b.dataset.copy),label=b.textContent;
+  const ok=()=>{b.textContent='Copied';setTimeout(()=>b.textContent=label,1500)};
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)};
+  try{navigator.clipboard.writeText(el.textContent).then(ok,sel)}catch(_){sel()}});
+/* nav highlight */
+const navl=[...document.querySelectorAll('#navl a')];
+const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navl.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
+['home','work','showreel','services','contact'].forEach(id=>nio.observe($(id)));
+</script>
 </body></html>
