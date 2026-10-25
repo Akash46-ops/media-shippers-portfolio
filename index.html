@@ -223,6 +223,41 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
 .ticker .dot:nth-of-type(3n){background:var(--yellow)}
 @keyframes tick{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker .track{width:auto;flex-wrap:wrap}.ticker .grp+.grp{display:none}.ticker .grp{flex-wrap:wrap;white-space:normal;padding-inline:16px}}
+/* services v5 */
+.svcwrap{display:grid;gap:18px}
+.svc-bar{display:flex;flex-wrap:wrap;gap:12px 18px;justify-content:space-between;align-items:center;padding:14px 18px;border:1px solid var(--line);border-radius:16px;background:linear-gradient(90deg,rgba(242,106,27,.08),rgba(15,125,191,.06));font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.svc-chips{display:flex;gap:6px;flex-wrap:wrap}
+.svc-chips i{font-style:normal;color:#fff;padding:6px 9px;border-radius:7px;background:color-mix(in srgb,var(--c) 85%,transparent);letter-spacing:.08em}
+.svcgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.svc{position:relative;display:grid;gap:10px;align-content:start;padding:22px;border-radius:18px;background:linear-gradient(var(--panel),var(--panel)) padding-box,linear-gradient(150deg,color-mix(in srgb,var(--c) 70%,transparent),var(--line) 45%) border-box;border:1px solid transparent;transition:transform .3s,box-shadow .3s}
+.svc::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at 20% 0%,color-mix(in srgb,var(--c) 18%,transparent),transparent 60%);pointer-events:none}
+.svc:hover{transform:translateY(-5px);box-shadow:0 24px 50px -24px color-mix(in srgb,var(--c) 60%,#000)}
+.svc-top{display:flex;justify-content:space-between;align-items:center}
+.svc-ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 50%,var(--ink)))}
+.svc-n{font:500 12px/1 var(--mono);color:var(--muted);letter-spacing:.1em}
+.svc .ext{justify-self:start;font:600 11px/1 var(--mono);padding:6px 8px;border-radius:6px;background:var(--ink);border:1px solid var(--line);color:#d6dfec;letter-spacing:.08em}
+.svc b{font:700 19px/1.2 var(--display)}
+.svc small{color:var(--muted);font-size:14px;line-height:1.5}
+/* workflow v5 */
+.tl{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;position:relative}
+.tl::before{content:"";position:absolute;left:10%;right:10%;top:27px;height:3px;border-radius:3px;background:var(--speed);opacity:.85}
+.tl li{display:grid;align-self:stretch;align-items:stretch;grid-template-rows:auto 1fr;justify-items:center;gap:16px;text-align:center}
+.node{position:relative;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--ink);border:2px solid transparent;background:linear-gradient(var(--ink),var(--ink)) padding-box,var(--speed) border-box;box-shadow:0 0 0 6px var(--ink),0 0 28px -4px rgba(242,106,27,.6)}
+.node span{font:600 15px/1 var(--mono);color:var(--fg)}
+.tcard{display:grid;gap:8px;align-content:start;justify-items:center;padding:20px 16px;border-radius:16px;background:var(--panel);border:1px solid var(--line);height:100%;transition:transform .3s,border-color .3s}
+.tcard:hover{transform:translateY(-4px);border-color:#34507a}
+.tic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;color:var(--yellow);background:rgba(247,181,0,.1);border:1px solid rgba(247,181,0,.25)}
+.tcard b{font:700 17px/1.25 var(--display)}
+.tcard small{color:var(--muted);font-size:14px;line-height:1.5}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease var(--d,0ms),transform .6s ease var(--d,0ms)}
+.rv.in{opacity:1;transform:none}
+@media (max-width:980px){
+  .tl{grid-template-columns:minmax(0,1fr);gap:14px}
+  .tl::before{left:27px;right:auto;top:28px;bottom:28px;width:3px;height:auto;background:linear-gradient(180deg,var(--yellow),var(--orange) 40%,var(--red) 75%,var(--plum))}
+  .tl li{grid-template-rows:none;grid-template-columns:56px minmax(0,1fr);justify-items:start;text-align:left;align-items:start}
+  .tcard{justify-items:start;width:100%}
+}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
 @media (max-width:980px){
   .master,.studio,.deliver{grid-template-columns:minmax(0,1fr)}
   .master .frame{order:-1}
@@ -370,19 +405,10 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
       <h2>What lands in your inbox.</h2>
       <p>Every dub ships platform-ready, with the files your distributor or OTT partner will ask for.</p>
     </div>
-    <div class="deliver">
-      <div class="manifest">
-        <header><span>Delivery manifest</span><span>Per title</span></header>
-        <ul>
-          <li><span class="ext" style="background:var(--orange)">MIX</span><div><b>Dubbed final mix</b><small>Stereo or 5.1, levelled to your platform's loudness spec.</small></div></li>
-          <li><span class="ext" style="background:var(--plum)">M&amp;E</span><div><b>Music &amp; effects stems</b><small>Clean M&amp;E so the title can be re-versioned later.</small></div></li>
-          <li><span class="ext" style="background:var(--blue)">SRT</span><div><b>Subtitles &amp; captions</b><small>Timed SRT or VTT in the target language.</small></div></li>
-          <li><span class="ext" style="background:var(--teal)">DOC</span><div><b>Adapted dialogue script</b><small>Transcription plus translation adapted for idiom and mouth movement.</small></div></li>
-          <li><span class="ext" style="background:#3b4e6e">QC</span><div><b>QC sign-off</b><small>Sync, pronunciation and level checks done by our team.</small></div></li>
-        </ul>
+    <div class="svcwrap">
+        <header class="svc-bar"><span>Delivery manifest</span><span class="svc-chips"><i style="--c:var(--orange)">MIX</i><i style="--c:var(--plum)">M&amp;E</i><i style="--c:var(--blue)">SRT</i><i style="--c:var(--teal)">DOC</i><i style="--c:#5b7299">QC</i></span><span>Per title</span></header>
+        <ul class="svcgrid"><li class="svc rv" style="--c:var(--orange)"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4M8 6v12M12 3v18M16 7v10M20 10v4"/></svg></span><span class="svc-n">01</span></div><span class="ext">MIX</span><b>Dubbed final mix</b><small>Stereo or 5.1, levelled to your platform's loudness spec.</small></li><li class="svc rv" style="--c:var(--plum)"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></span><span class="svc-n">02</span></div><span class="ext">M&amp;E</span><b>Music &amp; effects stems</b><small>Clean M&amp;E so the title can be re-versioned later.</small></li><li class="svc rv" style="--c:var(--blue)"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15h4M13 15h4M7 11h10"/></svg></span><span class="svc-n">03</span></div><span class="ext">SRT</span><b>Subtitles &amp; captions</b><small>Timed SRT or VTT in the target language.</small></li><li class="svc rv" style="--c:var(--teal)"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></span><span class="svc-n">04</span></div><span class="ext">DOC</span><b>Adapted dialogue script</b><small>Transcription plus translation adapted for idiom and mouth movement.</small></li><li class="svc rv" style="--c:#5b7299"><div class="svc-top"><span class="svc-ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></span><span class="svc-n">05</span></div><span class="ext">QC</span><b>QC sign-off</b><small>Sync, pronunciation and level checks done by our team.</small></li></ul>
       </div>
-
-    </div>
   </section>
 
     <section class="sec wrap" id="workflow">
@@ -390,13 +416,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
       <div class="eyebrow">Workflow</div>
       <h2>How a dub is made</h2>
     </div>
-      <ol class="steps" style="max-width:780px" aria-label="How a dub is made">
-        <li><span>01</span><div><b>You send a scene</b><small>Any format, any length, plus the language you need.</small></div></li>
-        <li><span>02</span><div><b>We transcribe and adapt</b><small>Lines rewritten to fit the mouth, the timing and the culture.</small></div></li>
-        <li><span>03</span><div><b>Voices are cast and shaped</b><small>The AI voice keeps the actor's tone; a director tunes every emotional beat.</small></div></li>
-        <li><span>04</span><div><b>Mix and quality check</b><small>Lip-sync, levels and pronunciation reviewed by people.</small></div></li>
-        <li><span>05</span><div><b>Delivered to spec</b><small>Final files formatted for your platform, ready to upload.</small></div></li>
-      </ol>
+      <ol class="tl" aria-label="How a dub is made"><li class="rv" style="--d:0ms"><div class="node"><span>01</span></div><div class="tcard"><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg></span><b>You send a scene</b><small>Any format, any length, plus the language you need.</small></div></li><li class="rv" style="--d:90ms"><div class="node"><span>02</span></div><div class="tcard"><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg></span><b>We transcribe and adapt</b><small>Lines rewritten to fit the mouth, the timing and the culture.</small></div></li><li class="rv" style="--d:180ms"><div class="node"><span>03</span></div><div class="tcard"><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0M12 17v5"/></svg></span><b>Voices are cast and shaped</b><small>The AI voice keeps the actor's tone; a director tunes every emotional beat.</small></div></li><li class="rv" style="--d:270ms"><div class="node"><span>04</span></div><div class="tcard"><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><b>Mix and quality check</b><small>Lip-sync, levels and pronunciation reviewed by people.</small></div></li><li class="rv" style="--d:360ms"><div class="node"><span>05</span></div><div class="tcard"><span class="tic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="M17 8l-5-5-5 5M12 3v12"/></svg></span><b>Delivered to spec</b><small>Final files formatted for your platform, ready to upload.</small></div></li></ol>
   </section>
 
   <section class="sec wrap" id="team">
@@ -590,6 +610,8 @@ $('play-reel').addEventListener('click',()=>{const v=$('master-v');v.play().catc
 /* ticker */
 {const items=[`<b>${langs.length}</b> languages`,`<b>${S.length}</b> finished dubs`,`<b>${S.filter(s=>s.orig).length}</b> original vs dub scenes`,`<b>${new Set(S.map(s=>s.fmt)).size}</b> formats`,...LINES.map(l=>l[1])];
 const g=items.map(t=>`<span>${t}</span><i class="dot"></i>`).join('');$('tick').innerHTML=`<div class="grp">${g}</div><div class="grp" aria-hidden="true">${g}</div>`;}
+/* reveal */
+{const r=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');r.unobserve(e.target)}}),{threshold:.15});document.querySelectorAll('.rv').forEach(el=>r.observe(el));}
 /* nav highlight */
 const navl=[...document.querySelectorAll('#navl a')];
 const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navl.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
