@@ -214,6 +214,15 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
 .mframe video{max-width:100%;max-height:72vh;display:block}
 .dialog .switch{max-width:420px}
 
+.ticker{overflow:hidden;border-bottom:1px solid var(--line);background:var(--panel);padding-block:11px}
+.ticker .track{display:flex;width:max-content;animation:tick 45s linear infinite}
+.ticker:hover .track{animation-play-state:paused}
+.ticker .grp{display:flex;align-items:center;gap:18px;padding-right:18px;font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.ticker b{color:var(--fg);font-weight:500}
+.ticker .dot{width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0}
+.ticker .dot:nth-of-type(3n){background:var(--yellow)}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .track{width:auto;flex-wrap:wrap}.ticker .grp+.grp{display:none}.ticker .grp{flex-wrap:wrap;white-space:normal;padding-inline:16px}}
 @media (max-width:980px){
   .master,.studio,.deliver{grid-template-columns:minmax(0,1fr)}
   .master .frame{order:-1}
@@ -227,7 +236,10 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
   .nav img{height:26px;max-width:none}
   .nav .wrap>a{flex-shrink:0}
   .nav ul{overflow-x:auto}
-  .nav ul a{padding:7px 8px;font-size:13px}
+  .nav ul a{padding:7px 8px;font-size:13px;white-space:nowrap}
+  .nav .wrap{gap:8px}
+  .nav nav{min-width:0;flex:1}
+  .cta-mini{padding:7px 10px;font-size:12px}
   .team,.pairs{grid-template-columns:minmax(0,1fr)}
   .filter-row .lbl{width:100%}
   .sec{padding-block:68px 16px}
@@ -238,7 +250,8 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
 <header class="nav">
   <div class="wrap">
     <a href="#home" aria-label="Media Shippers home"><img src="assets/img/logo.png" alt="Media Shippers" width="640" height="186"></a>
-    <nav aria-label="Sections"><ul id="navl"><li><a href="#home" class="active">Home</a></li><li><a href="#work">Work</a></li><li><a href="#showreel">Showreel</a></li><li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+    <nav aria-label="Sections"><ul id="navl"><li><a href="#ab">A/B test</a></li><li><a href="#reel">Promos</a></li><li><a href="#shelf">Samples</a></li><li><a href="#room">Languages</a></li><li><a href="#promos">Emotion Tests</a></li><li><a href="#deliver">Delivery</a></li><li><a href="#team">Contact us</a></li></ul></nav>
+    <a class="cta-mini" href="#team">Get a test dub</a>
   </div>
 </header>
 
@@ -250,8 +263,8 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
       <h1 class="hero-title">One story. <span class="grad">Every language.</span> Same emotion.</h1>
       <p class="lead">Hybrid AI dubbing for film, series and creators. AI voices that keep the actor's tone, with every performance directed and checked by people.</p>
       <div class="btns">
-        <a class="btn primary" href="#ab">Switch a scene's voice</a>
-        <a class="btn ghost" href="#reel">▶ Play the full reel</a>
+        <a class="btn primary" href="#reel" id="play-reel">▶ Play the full reel</a>
+        <a class="btn ghost" href="#ab">Switch a scene's voice</a>
       </div>
       <div class="stats"><span><b id="st-lang">12</b>languages out</span><span><b id="st-samp">19</b>finished dubs</span><span><b id="st-ab">4</b>original-vs-dub scenes</span><span><b id="st-fmt">5</b>formats</span></div>
     </div>
@@ -261,19 +274,8 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
 
 
 
-  <div id="work">
-  <section class="sec wrap" id="reel">
-    <div class="master">
-      <div class="master-copy">
-        <div class="speed" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="eyebrow">Full reel · 02:43</div>
-        <h2>The EntTech dubbing reel.</h2>
-        <p>Short on time? This cut strings our strongest scenes together: film, drama and animation, across several language pairs. Watch for lip-sync on close-ups and how the voices carry the original performance.</p>
-        <div class="chiplist"><span class="chip">Feature film</span><span class="chip">Drama</span><span class="chip">Animation</span><span class="chip">Multi-language</span></div>
-      </div>
-      <div class="frame"><video src="assets/video/master.mp4" poster="assets/img/master.jpg" controls playsinline preload="metadata"></video></div>
-    </div>
-  </section>
+  
+  <div class="ticker" aria-label="Highlights"><div class="track" id="tick"></div></div>
 
   <section class="sec wrap" id="ab">
     <div class="sec-head">
@@ -294,6 +296,19 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
         <p class="hint">Keyboard: <kbd>A</kbd> source, <kbd>B</kbd> dub.</p>
       </div>
       <div class="pairs" id="pairs" role="group" aria-label="Choose a scene"><div class="eyebrow">Pick a scene</div></div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="reel">
+    <div class="master">
+      <div class="master-copy">
+        <div class="speed" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="eyebrow">Full reel · 02:43</div>
+        <h2>Media Shippers Master Dubbing Samples</h2>
+        <p>Short on time? This cut strings our strongest scenes together: film, drama and animation, across several language pairs. Watch for lip-sync on close-ups and how the voices carry the original performance.</p>
+        <div class="chiplist"><span class="chip">Feature film</span><span class="chip">Drama</span><span class="chip">Animation</span><span class="chip">Multi-language</span></div>
+      </div>
+      <div class="frame"><video id="master-v" src="assets/video/master.mp4" poster="assets/img/master.jpg" controls playsinline preload="metadata"></video></div>
     </div>
   </section>
 
@@ -325,11 +340,10 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
       </div>
     </div>
   </section>
-  </div>
 
-  <section class="sec wrap" id="showreel">
+  <section class="sec wrap" id="promos">
     <div class="sec-head">
-      <div class="eyebrow">Show reels</div>
+      <div class="eyebrow">Emotion Tests</div>
       <h2>Made for the feed. Tested for feeling.</h2>
       <p>Two vertical promos built for social, and two eight-second emotion tests. Fear and comedy are the hardest things for a synthetic voice to fake.</p>
     </div>
@@ -348,7 +362,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
     </div>
   </section>
 
-  <section class="sec wrap" id="services">
+  <section class="sec wrap" id="deliver">
     <div class="sec-head">
       <div class="eyebrow">Delivery</div>
       <h2>What lands in your inbox.</h2>
@@ -375,17 +389,16 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
     </div>
   </section>
 
-  <div id="contact">
-  <section class="sec wrap" id="team">
+    <section class="sec wrap" id="team">
     <div class="sec-head">
-      <div class="eyebrow">Team</div>
-      <h2>The people behind the voices.</h2>
+      <div class="eyebrow">Contact us</div>
+      <h2>Contact us</h2>
       <p>Write to Geetha or Akash directly with a scene and a target language. Your first 1–2 minute test dub is free.</p>
     </div>
     <div class="team">
       <div class="person">
         <div class="top"><div class="avatar" style="background:linear-gradient(135deg,var(--blue),var(--teal))">UG</div><div><b>Uday Ghare</b><span class="role">Founder</span></div></div>
-        <p>Founder of Media Shippers and CEO of Entertainment Technologists Development Corp.</p>
+        <div class="line"><div class="val"><small>Email</small><span id="em-u">uday.ghare@entertainmenttechnologists.com</span></div><div class="acts"><button class="mini" data-copy="em-u">Copy email</button><a class="mini" href="mailto:uday.ghare@entertainmenttechnologists.com?subject=Test%20dub%20request">Write</a><a class="mini li" href="https://www.linkedin.com/in/uday-ghare-6b72332/" target="_blank" rel="noopener">LinkedIn</a></div></div>
       </div>
       <div class="person">
         <div class="top"><div class="avatar" style="background:linear-gradient(135deg,var(--orange),var(--red))">GB</div><div><b>Geetha Bharathi VR</b><span class="role">Content Delivery Head</span></div></div>
@@ -404,7 +417,6 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
       <a class="btn primary" href="#team">Request a test dub</a>
     </div>
   </section>
-  </div>
 </main>
 
 <footer>
@@ -564,9 +576,13 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if
   const ok=()=>{b.textContent='Copied';setTimeout(()=>b.textContent=label,1500)};
   const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)};
   try{navigator.clipboard.writeText(el.textContent).then(ok,sel)}catch(_){sel()}});
+$('play-reel').addEventListener('click',()=>{const v=$('master-v');v.play().catch(()=>{})});
+/* ticker */
+{const items=[`<b>${langs.length}</b> languages`,`<b>${S.length}</b> finished dubs`,`<b>${S.filter(s=>s.orig).length}</b> original vs dub scenes`,`<b>${new Set(S.map(s=>s.fmt)).size}</b> formats`,...LINES.map(l=>l[1])];
+const g=items.map(t=>`<span>${t}</span><i class="dot"></i>`).join('');$('tick').innerHTML=`<div class="grp">${g}</div><div class="grp" aria-hidden="true">${g}</div>`;}
 /* nav highlight */
 const navl=[...document.querySelectorAll('#navl a')];
 const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navl.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['home','work','showreel','services','contact'].forEach(id=>nio.observe($(id)));
+['ab','reel','shelf','room','promos','deliver','team'].forEach(id=>nio.observe($(id)));
 </script>
 </body></html>
