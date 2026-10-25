@@ -161,7 +161,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .emotion .frame video{aspect-ratio:982/540}
 
 /* delivery */
-.deliver{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+.deliver{display:grid;grid-template-columns:minmax(0,1fr);gap:22px;max-width:780px}
 .manifest{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden}
 .manifest header{display:flex;justify-content:space-between;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font:500 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .manifest ul{list-style:none;margin:0;padding:0}
@@ -250,7 +250,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
 <header class="nav">
   <div class="wrap">
     <a href="#home" aria-label="Media Shippers home"><img src="assets/img/logo.png" alt="Media Shippers" width="640" height="186"></a>
-    <nav aria-label="Sections"><ul id="navl"><li><a href="#ab">A/B test</a></li><li><a href="#reel">Promos</a></li><li><a href="#shelf">Samples</a></li><li><a href="#room">Languages</a></li><li><a href="#promos">Emotion Tests</a></li><li><a href="#deliver">Delivery</a></li><li><a href="#team">Contact us</a></li></ul></nav>
+    <nav aria-label="Sections"><ul id="navl"><li><a href="#reel">Master Dub</a></li><li><a href="#ab">A/B test</a></li><li><a href="#shelf">Samples</a></li><li><a href="#room">Languages</a></li><li><a href="#promos">Emotion Tests</a></li><li><a href="#deliver">Services</a></li><li><a href="#workflow">Workflow</a></li><li><a href="#team">Contact us</a></li></ul></nav>
     <a class="cta-mini" href="#team">Get a test dub</a>
   </div>
 </header>
@@ -263,7 +263,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
       <h1 class="hero-title">One story. <span class="grad">Every language.</span> Same emotion.</h1>
       <p class="lead">Hybrid AI dubbing for film, series and creators. AI voices that keep the actor's tone, with every performance directed and checked by people.</p>
       <div class="btns">
-        <a class="btn primary" href="#reel" id="play-reel">▶ Play the full reel</a>
+        <a class="btn primary" href="#reel" id="play-reel">▶ Play the master dub</a>
         <a class="btn ghost" href="#ab">Switch a scene's voice</a>
       </div>
       <div class="stats"><span><b id="st-lang">12</b>languages out</span><span><b id="st-samp">19</b>finished dubs</span><span><b id="st-ab">4</b>original-vs-dub scenes</span><span><b id="st-fmt">5</b>formats</span></div>
@@ -276,6 +276,20 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
 
   
   <div class="ticker" aria-label="Highlights"><div class="track" id="tick"></div></div>
+
+  <section class="sec wrap" id="reel">
+    <div class="master">
+      <div class="master-copy">
+        <div class="speed" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="eyebrow">Master Dub · 02:43</div>
+        <h2>Media Shippers Master Dubbing Samples</h2>
+        <p><b style="color:var(--fg)">Enttech Dubbing Sample</b></p>
+        <p>Short on time? This cut strings our strongest scenes together: film, drama and animation, across several language pairs. Watch for lip-sync on close-ups and how the voices carry the original performance.</p>
+        <div class="chiplist"><span class="chip">Feature film</span><span class="chip">Drama</span><span class="chip">Animation</span><span class="chip">Multi-language</span></div>
+      </div>
+      <div class="frame"><video id="master-v" src="assets/video/master.mp4" poster="assets/img/master.jpg" controls playsinline preload="metadata"></video></div>
+    </div>
+  </section>
 
   <section class="sec wrap" id="ab">
     <div class="sec-head">
@@ -299,18 +313,6 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
     </div>
   </section>
 
-  <section class="sec wrap" id="reel">
-    <div class="master">
-      <div class="master-copy">
-        <div class="speed" aria-hidden="true"><i></i><i></i><i></i></div>
-        <div class="eyebrow">Full reel · 02:43</div>
-        <h2>Media Shippers Master Dubbing Samples</h2>
-        <p>Short on time? This cut strings our strongest scenes together: film, drama and animation, across several language pairs. Watch for lip-sync on close-ups and how the voices carry the original performance.</p>
-        <div class="chiplist"><span class="chip">Feature film</span><span class="chip">Drama</span><span class="chip">Animation</span><span class="chip">Multi-language</span></div>
-      </div>
-      <div class="frame"><video id="master-v" src="assets/video/master.mp4" poster="assets/img/master.jpg" controls playsinline preload="metadata"></video></div>
-    </div>
-  </section>
 
   <section class="sec wrap" id="shelf">
     <div class="sec-head">
@@ -348,8 +350,8 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
       <p>Two vertical promos built for social, and two eight-second emotion tests. Fear and comedy are the hardest things for a synthetic voice to fake.</p>
     </div>
     <div class="reels">
-      <div class="reel"><div class="frame"><video src="assets/video/reel-promo.mp4" poster="assets/img/reel-promo.jpg" controls playsinline preload="none"></video></div><b>AI Dubbing Promo</b><span>9:16 · 01:01</span></div>
-      <div class="reel"><div class="frame"><video src="assets/video/reel-instagram.mp4" poster="assets/img/reel-instagram.jpg" controls playsinline preload="none"></video></div><b>Instagram cut</b><span>4:5 · 00:54</span></div>
+      <div class="reel"><div class="frame"><video src="assets/video/reel-promo.mp4" poster="assets/img/reel-promo.jpg" controls playsinline preload="none"></video></div><b>MediaShippers_AI_Dubbing_Promo</b><span>9:16 · 01:01</span></div>
+      <div class="reel"><div class="frame"><video src="assets/video/reel-instagram.mp4" poster="assets/img/reel-instagram.jpg" controls playsinline preload="none"></video></div><b>Dubbing Promo for Instagram</b><span>4:5 · 00:54</span></div>
       <div class="emotion">
         <div class="speed" aria-hidden="true"><i></i><i></i><i></i></div>
         <h3>Eight-second emotion test</h3>
@@ -364,7 +366,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
 
   <section class="sec wrap" id="deliver">
     <div class="sec-head">
-      <div class="eyebrow">Delivery</div>
+      <div class="eyebrow">Services</div>
       <h2>What lands in your inbox.</h2>
       <p>Every dub ships platform-ready, with the files your distributor or OTT partner will ask for.</p>
     </div>
@@ -379,17 +381,25 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
           <li><span class="ext" style="background:#3b4e6e">QC</span><div><b>QC sign-off</b><small>Sync, pronunciation and level checks done by our team.</small></div></li>
         </ul>
       </div>
-      <ol class="steps" aria-label="How a dub is made">
+
+    </div>
+  </section>
+
+    <section class="sec wrap" id="workflow">
+    <div class="sec-head">
+      <div class="eyebrow">Workflow</div>
+      <h2>How a dub is made</h2>
+    </div>
+      <ol class="steps" style="max-width:780px" aria-label="How a dub is made">
         <li><span>01</span><div><b>You send a scene</b><small>Any format, any length, plus the language you need.</small></div></li>
         <li><span>02</span><div><b>We transcribe and adapt</b><small>Lines rewritten to fit the mouth, the timing and the culture.</small></div></li>
         <li><span>03</span><div><b>Voices are cast and shaped</b><small>The AI voice keeps the actor's tone; a director tunes every emotional beat.</small></div></li>
         <li><span>04</span><div><b>Mix and quality check</b><small>Lip-sync, levels and pronunciation reviewed by people.</small></div></li>
         <li><span>05</span><div><b>Delivered to spec</b><small>Final files formatted for your platform, ready to upload.</small></div></li>
       </ol>
-    </div>
   </section>
 
-    <section class="sec wrap" id="team">
+  <section class="sec wrap" id="team">
     <div class="sec-head">
       <div class="eyebrow">Contact us</div>
       <h2>Contact us</h2>
@@ -443,23 +453,23 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
 
 <script>
 const S=[
- {f:'english-hindi-dub',orig:'english-hindi-original',from:'Hindi',to:'English',title:'Search party',fmt:'Drama',d:67},
- {f:'english-hebrew-accent-dub',orig:'english-hebrew-original',from:'Hebrew',to:'English',title:'Butterfly class',fmt:'Drama',d:121,note:'Hebrew accent kept'},
- {f:'english-yomeddine',from:'Arabic',to:'English',title:'Yomeddine',fmt:'Feature film',d:105},
- {f:'english-rebels-trailer',from:'Source',to:'English',title:'Rebels',fmt:'Trailer',d:148},
- {f:'anim-english',from:'Source',to:'English',title:'Cartoon series',fmt:'Animation',d:67},
- {f:'hindi-chinese',from:'Chinese',to:'Hindi',title:'Hospital micro-drama',fmt:'Vertical drama',d:121,v:1},
- {f:'anim-hindi',orig:'anim-original',from:'Source',to:'Hindi',title:'Animated short',fmt:'Animation',d:303},
- {f:'spanish-latam',from:'Source',to:'Spanish',title:'Live-action comedy',fmt:'Drama',d:96,note:'Latin American'},
- {f:'anim-spanish',from:'Source',to:'Spanish',title:'Cartoon series',fmt:'Animation',d:67,note:'Latin American'},
- {f:'japanese-korean-drama',from:'Korean',to:'Japanese',title:'K-drama short',fmt:'Vertical drama',d:56,v:1},
- {f:'japanese-yomeddine',from:'Arabic',to:'Japanese',title:'Yomeddine',fmt:'Feature film',d:105},
- {f:'german-dub',orig:'german-original',from:'Source',to:'German',title:'Kitchen thriller',fmt:'Vertical drama',d:103,v:1},
- {f:'french-dub',from:'Source',to:'French',title:'Studio talk show',fmt:'Drama',d:40},
- {f:'portuguese-yomeddine',from:'Arabic',to:'Portuguese',title:'Yomeddine',fmt:'Feature film',d:105},
- {f:'korean-dub',from:'Source',to:'Korean',title:'Vertical K-drama',fmt:'Vertical drama',d:119,v:1},
- {f:'bengali-marathi',from:'Marathi',to:'Bengali',title:'Creator explainer',fmt:'Vertical drama',d:47,v:1},
- {f:'kannada-dub',from:'Source',to:'Kannada',title:'Film scene',fmt:'Feature film',d:35},
+ {f:'english-hindi-dub',orig:'english-hindi-original',from:'Hindi',to:'English',title:'English Dub',fmt:'Drama',d:67},
+ {f:'english-hebrew-accent-dub',orig:'english-hebrew-original',from:'Hebrew',to:'English',title:'Hebrew accented English Dub',fmt:'Drama',d:121,note:'Hebrew accent kept'},
+ {f:'english-yomeddine',from:'Arabic',to:'English',title:'Yomeddine - Arabic to English Dub',fmt:'Feature film',d:105},
+ {f:'english-rebels-trailer',from:'Source',to:'English',title:'Rebels English Trailer',fmt:'Trailer',d:148},
+ {f:'anim-english',from:'Source',to:'English',title:'Animation English Dubbing',fmt:'Animation',d:67},
+ {f:'hindi-chinese',from:'Chinese',to:'Hindi',title:'Chinese-Hindi Dub',fmt:'Vertical drama',d:121,v:1},
+ {f:'anim-hindi',orig:'anim-original',from:'Source',to:'Hindi',title:'Hindi Dub',fmt:'Animation',d:303},
+ {f:'spanish-latam',from:'Source',to:'Spanish',title:'LATAM Spanish Dub Sample',fmt:'Drama',d:96,note:'Latin American'},
+ {f:'anim-spanish',from:'Source',to:'Spanish',title:'Animation LatAm Spanish Dubbing',fmt:'Animation',d:67,note:'Latin American'},
+ {f:'japanese-korean-drama',from:'Korean',to:'Japanese',title:'Korean vertical drama - Japanese Dub',fmt:'Vertical drama',d:56,v:1},
+ {f:'japanese-yomeddine',from:'Arabic',to:'Japanese',title:'Yoddemine - Arabic to Japanese Dub',fmt:'Feature film',d:105},
+ {f:'german-dub',orig:'german-original',from:'Source',to:'German',title:'AI German Dub',fmt:'Vertical drama',d:103,v:1},
+ {f:'french-dub',from:'Source',to:'French',title:'French Dub',fmt:'Drama',d:40},
+ {f:'portuguese-yomeddine',from:'Arabic',to:'Portuguese',title:'Copy of Yoddemine - Portuguese',fmt:'Feature film',d:105},
+ {f:'korean-dub',from:'Source',to:'Korean',title:'Korean Dub',fmt:'Vertical drama',d:119,v:1},
+ {f:'bengali-marathi',from:'Marathi',to:'Bengali',title:'Marathi to Bengali Dub',fmt:'Vertical drama',d:47,v:1},
+ {f:'kannada-dub',from:'Source',to:'Kannada',title:'Kannada Dub sample',fmt:'Feature film',d:35},
  {f:'clip_A',from:'Source',to:'Arabic',title:'Fear on the phone',fmt:'Drama',d:8},
  {f:'clip_R',from:'Source',to:'Russian',title:'Café argument',fmt:'Drama',d:8}
 ];
@@ -583,6 +593,6 @@ const g=items.map(t=>`<span>${t}</span><i class="dot"></i>`).join('');$('tick').
 /* nav highlight */
 const navl=[...document.querySelectorAll('#navl a')];
 const nio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navl.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-45% 0px -50% 0px'});
-['ab','reel','shelf','room','promos','deliver','team'].forEach(id=>nio.observe($(id)));
+['reel','ab','shelf','room','promos','deliver','workflow','team'].forEach(id=>nio.observe($(id)));
 </script>
 </body></html>
