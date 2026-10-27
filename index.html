@@ -5,7 +5,7 @@
 <link rel="icon" href="assets/img/favicon.png">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans:wght@700;800&family=Noto+Sans+Devanagari:wght@700;800&family=Noto+Sans+Bengali:wght@700;800&family=Noto+Sans+Kannada:wght@700;800&family=Noto+Sans+Arabic:wght@700;800&family=Noto+Sans+JP:wght@700;800&family=Noto+Sans+KR:wght@700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans:wght@700;800&family=Noto+Sans+Devanagari:wght@700;800&family=Noto+Sans+Bengali:wght@700;800&family=Noto+Sans+Kannada:wght@700;800&family=Noto+Sans+Tamil:wght@700;800&family=Noto+Sans+Telugu:wght@700;800&family=Noto+Sans+Arabic:wght@700;800&family=Noto+Sans+JP:wght@700;800&family=Noto+Sans+KR:wght@700;800&display=swap">
 <style>
 :root{
   --ink:#081120; --panel:#0e1a2c; --panel-2:#13233a; --line:#1f3150; --fg:#f2f5fa; --muted:#94a4be;
@@ -13,7 +13,7 @@
   --display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
   --body:"Figtree",ui-sans-serif,system-ui,sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
-  --script:"Bricolage Grotesque","Noto Sans","Noto Sans Devanagari","Noto Sans Bengali","Noto Sans Kannada","Noto Sans JP","Noto Sans KR","Noto Sans Arabic","Nirmala UI","Yu Gothic","Malgun Gothic",system-ui,sans-serif;
+  --script:"Bricolage Grotesque","Noto Sans","Noto Sans Devanagari","Noto Sans Bengali","Noto Sans Kannada","Noto Sans Tamil","Noto Sans Telugu","Noto Sans JP","Noto Sans KR","Noto Sans Arabic","Nirmala UI","Yu Gothic","Malgun Gothic",system-ui,sans-serif;
   --speed:linear-gradient(90deg,var(--yellow),var(--orange) 40%,var(--red) 75%,var(--plum));
   color-scheme:dark;
 }
@@ -301,7 +301,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
         <a class="btn primary" href="#reel" id="play-reel">▶ Play the master dub</a>
         <a class="btn ghost" href="#ab">Switch a scene's voice</a>
       </div>
-      <div class="stats"><span><b id="st-lang">12</b>languages out</span><span><b id="st-samp">19</b>finished dubs</span><span><b id="st-ab">4</b>original-vs-dub scenes</span><span><b id="st-fmt">5</b>formats</span></div>
+      <div class="stats"><span><b id="st-lang">14</b>languages out</span><span><b id="st-samp">21</b>finished dubs</span><span><b id="st-ab">4</b>original-vs-dub scenes</span><span><b id="st-fmt">5</b>formats</span></div>
     </div>
   </section>
 
@@ -364,7 +364,7 @@ footer nav{display:flex;gap:16px;flex-wrap:wrap}
   <section class="sec wrap" id="room">
     <div class="sec-head" style="margin-inline:auto;text-align:center;justify-items:center">
       <div class="eyebrow">Dubbing room</div>
-      <h2>One line. Twelve languages.</h2>
+      <h2>One line. Fourteen languages.</h2>
       <p>The same line of dialogue in every language we dub into. Tap a language code to jump to it.</p>
     </div>
     <div class="room">
@@ -489,10 +489,12 @@ const S=[
  {f:'korean-dub',from:'Source',to:'Korean',title:'Korean Dub',fmt:'Vertical drama',d:119,v:1},
  {f:'bengali-marathi',from:'Marathi',to:'Bengali',title:'Marathi to Bengali Dub',fmt:'Vertical drama',d:47,v:1},
  {f:'kannada-dub',from:'Source',to:'Kannada',title:'Kannada Dub sample',fmt:'Feature film',d:35},
+ {f:'tamil-dub',from:'Source',to:'Tamil',title:'Tamil Dub',fmt:'Vertical drama',d:117,v:1},
+ {f:'telugu-dub',from:'Source',to:'Telugu',title:'Telugu Dub',fmt:'Vertical drama',d:117,v:1},
  {f:'clip_A',from:'Source',to:'Arabic',title:'Fear on the phone',fmt:'Drama',d:8},
  {f:'clip_R',from:'Source',to:'Russian',title:'Café argument',fmt:'Drama',d:8}
 ];
-const CODE={English:'EN',Hindi:'HI',Spanish:'ES',Japanese:'JA',German:'DE',French:'FR',Portuguese:'PT',Korean:'KO',Bengali:'BN',Kannada:'KN',Arabic:'AR',Russian:'RU',Hebrew:'HE',Chinese:'ZH',Marathi:'MR',Source:'SRC'};
+const CODE={English:'EN',Hindi:'HI',Spanish:'ES',Japanese:'JA',German:'DE',French:'FR',Portuguese:'PT',Korean:'KO',Bengali:'BN',Kannada:'KN',Tamil:'TA',Telugu:'TE',Arabic:'AR',Russian:'RU',Hebrew:'HE',Chinese:'ZH',Marathi:'MR',Source:'SRC'};
 const tc=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.round(s%60)).padStart(2,'0');
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const $=id=>document.getElementById(id);
@@ -503,7 +505,7 @@ const LINES=[
  ['EN','English',"Don't leave me here.",'ltr'],['HI','Hindi','मुझे यहाँ छोड़कर मत जाओ।','ltr'],['ES','Spanish','No me dejes aquí.','ltr'],
  ['JA','Japanese','ここに置いていかないで。','ltr'],['KO','Korean','날 여기 두고 가지 마.','ltr'],['DE','German','Lass mich nicht hier zurück.','ltr'],
  ['FR','French','Ne me laisse pas ici.','ltr'],['PT','Portuguese','Não me deixe aqui.','ltr'],['BN','Bengali','আমাকে এখানে ফেলে যেও না।','ltr'],
- ['KN','Kannada','ನನ್ನನ್ನು ಇಲ್ಲಿ ಬಿಟ್ಟು ಹೋಗಬೇಡ.','ltr'],['AR','Arabic','لا تتركني هنا.','rtl'],['RU','Russian','Не оставляй меня здесь.','ltr']
+ ['KN','Kannada','ನನ್ನನ್ನು ಇಲ್ಲಿ ಬಿಟ್ಟು ಹೋಗಬೇಡ.','ltr'],['TA','Tamil','என்னை இங்கே விட்டுவிட்டுப் போகாதே.','ltr'],['TE','Telugu','నన్ను ఇక్కడ వదిలి వెళ్ళకు.','ltr'],['AR','Arabic','لا تتركني هنا.','rtl'],['RU','Russian','Не оставляй меня здесь.','ltr']
 ];
 $('wave').innerHTML=Array.from({length:56},(_,i)=>`<i style="animation-delay:${(i*37%100)/100*-1.1}s;height:${30+((i*53)%70)}%"></i>`).join('');
 $('langbar').innerHTML=LINES.map((l,i)=>`<button data-i="${i}" aria-pressed="${i===0}" title="${l[1]}">${l[0]}</button>`).join('');
